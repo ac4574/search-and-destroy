@@ -1,9 +1,18 @@
-'use strict';
+"use strict"
 
 // Complete this algo
 const binarySearch = (array, target) => {
-	
-};
+  const midpoint = Math.floor(array.length / 2)
+  const higher = array.slice(midpoint)
+  const lower = array.slice(0, midpoint)
+  if (array[midpoint] === target) return true
+  if (array.length === 1) return false
+  if (target > array[midpoint]) {
+    return binarySearch(higher, target)
+  } else if (target < array[midpoint]) {
+    return binarySearch(lower, target)
+  }
+}
 
 /*
 	EXTRA CREDIT:
